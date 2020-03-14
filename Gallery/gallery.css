@@ -1,0 +1,76 @@
+body {
+    display: grid;
+    place-content: center;
+    background:linear-gradient(-45deg,#9A1750,#376E6F,#E98074,#AAABB8);
+}
+
+.TEXT {
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    font-family: Emilys Candy;
+  
+}
+.waterfall {
+    width: 80vw;
+    margin: 3em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 1em;
+    grid-auto-flow: row dense;
+    grid-auto-rows: 10vh;
+}
+
+    .waterfall .item:nth-of-type(3n+1) {
+        grid-row: auto / span 3;
+    }
+
+    .waterfall .item:nth-of-type(3n+2) {
+        grid-row: auto / span 4;
+    }
+
+    .waterfall .item:nth-of-type(3n+3) {
+        grid-row: auto / span 5;
+    }
+
+    .waterfall .item {
+        overflow: hidden;
+        -webkit-transform: rotate(-7.5deg);
+        transform: rotate(-7.5deg);
+        -webkit-filter: saturate(0) contrast(10) brightness(0.2);
+        filter: saturate(0) contrast(10) brightness(0.2);
+        transition: border 0.1s, -webkit-transform 0.2s;
+        transition: transform 0.2s, border 0.1s;
+        transition: transform 0.2s, border 0.1s, -webkit-transform 0.2s;
+        box-sizing: border-box;
+        border: 1em solid transparent;
+    }
+
+        .waterfall .item img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+            transition: all 0.3s;
+        }
+
+        .waterfall .item.inbound {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            -webkit-filter: none;
+            filter: none;
+            border-bottom: 1px solid white;
+        }
+
+            .waterfall .item.inbound img {
+                -webkit-transform: rotate(0);
+                transform: rotate(0);
+            }
+
+@media (max-width: 768px) {
+  .TEXT{
+      font-size:18px;
+  }
+}
